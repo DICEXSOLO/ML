@@ -10,7 +10,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, LSTM
 
 #Load Data
-company = 'TSLA '
+company = 'AAPL'
 
 start = dt.datetime(2012,1,1,)
 end = dt.datetime(2020,1,1)
@@ -49,7 +49,7 @@ model.fit(x_train,y_train,epochs=25,batch_size=32)
 
 #Testing the model accuracy on existing dataset_test
 
-test_start = dt.datetime(2020,1,1)
+test_start = dt.datetime(2021,1,1)
 test_end = dt.datetime.now()
 
 test_data = web.DataReader(company, 'yahoo' , test_start, test_end)
