@@ -1,9 +1,3 @@
-# Recurrent Neural Network
-
-
-
-# Part 1 - Data Preprocessing
-
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
