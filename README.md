@@ -2,4 +2,3 @@
 
 
 
-Technology Used: Deep Learning , RNN , Machine Learning , LSTM
