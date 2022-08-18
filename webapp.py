@@ -7,12 +7,12 @@ from prophet import Prophet
 from prophet.plot import plot_plotly
 from plotly import graph_objs as go
 
-START = "2015-01-01"
+START = "2000-01-01"
 TODAY = date.today().strftime("%Y-%m-%d")
 
 st.title('Stock Forecast App')
 
-stocks = ('GOOG', 'AAPL', 'MSFT', 'GME')
+stocks = ('GOOG', 'AAPL', 'MSFT', 'CL=F', 'AMZN', '^GSPC')
 selected_stock = st.selectbox('Select dataset for prediction', stocks)
 
 n_years = st.slider('Years of prediction:', 1, 4)
@@ -48,6 +48,7 @@ df_train = data[['Date','Close']]
 df_train = df_train.rename(columns={"Date": "ds", "Close": "y"})
 
 m = Prophet()
+m.add_seasonality(name='monthly', period=21, fourier_order=5)
 m.fit(df_train)
 future = m.make_future_dataframe(periods=period)
 forecast = m.predict(future)
